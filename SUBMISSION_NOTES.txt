@@ -1,0 +1,8 @@
+Assignment 05: AccessDesk
+Before submitting:
+[ ] Start XAMPP MySQL and verify mydb8.customers4.
+[ ] Run npm install and npm start.
+[ ] Test all roles and API routes.
+[ ] Capture the four required screenshots.
+[ ] Put screenshots in a folder named screenshots (not included because they must show your own running app).
+[ ] If the instructor asks for a Word report, create a .docx report and insert your own screenshots.

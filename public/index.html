@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AccessDesk | Customer Directory</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand-mark">AD</div>
+    <div><h1>AccessDesk</h1><p>Role-Based Customer Access Portal</p></div>
+    <span class="secure-tag">API KEY ACCESS</span>
+  </header>
+
+  <main class="page">
+    <section class="intro">
+      <div><p class="eyebrow">CUSTOMER SERVICE • ACCESS CONTROL</p><h2>Customer Directory</h2><p>Access depends on your role, permitted actions, row allowance and available credits.</p></div>
+      <span class="status-pill"><span class="dot"></span> Local demo</span>
+    </section>
+
+    <section class="panel">
+      <div class="panel-heading"><div><h3>Demo role / API key</h3><p>Select a role to load its classroom demo key.</p></div><span id="roleBadge" class="badge student">Student</span></div>
+      <div class="controls role-controls">
+        <label>DEMO ROLE
+          <select id="roleSelect">
+            <option value="student">Student</option><option value="guest">Guest</option>
+            <option value="teacher">Teacher</option><option value="admin">Admin</option>
+          </select>
+        </label>
+        <label class="key-label">API KEY (DEMO)
+          <input id="apiKey" type="text" value="student-demo-key" autocomplete="off">
+        </label>
+      </div>
+      <div class="controls action-controls">
+        <label>REQUESTED ROWS
+          <input id="rowLimit" type="number" value="10" min="1" max="100">
+        </label>
+        <label class="search-label">SEARCH CUSTOMER
+          <input id="searchName" type="text" placeholder="e.g., Ali">
+        </label>
+      </div>
+      <div class="buttons">
+        <button id="loadBtn" class="primary">Load customers</button>
+        <button id="searchBtn" class="secondary">Search customers</button>
+        <button id="usageBtn" class="dark">View usage (Admin)</button>
+      </div>
+      <p class="hint">The API key is sent in the <code>x-api-key</code> request header. Each successful customer request uses one credit.</p>
+    </section>
+
+    <section class="stats">
+      <article class="stat-card"><span>ACTIVE ROLE</span><strong id="activeRole">Student</strong><small id="roleActions">Load + Search</small></article>
+      <article class="stat-card"><span>ROW ALLOWANCE</span><strong id="rowAllowance">3 max</strong><small>Server-enforced limit</small></article>
+      <article class="stat-card"><span>CREDITS LEFT</span><strong id="creditsLeft">8</strong><small>Credits are stored in Node.js memory</small></article>
+    </section>
+
+    <section class="panel results-panel">
+      <div class="results-heading"><div><h3 id="resultsTitle">Customer results</h3><p id="resultsSubtitle">Load customers to view permitted records.</p></div><span id="resultCount" class="count">0 records</span></div>
+      <div id="feedback" class="feedback info" role="status">Choose a role and load customers to begin.</div>
+      <div id="loading" class="loading" hidden><span class="spinner"></span> Request in progress…</div>
+      <div class="table-wrap"><table><thead id="tableHead"><tr><th>NAME</th><th>ADDRESS</th></tr></thead><tbody id="resultsBody"><tr><td colspan="2" class="empty">No customer records to display yet.</td></tr></tbody></table></div>
+      <div id="usageWrap" hidden><h4>Role usage summary</h4><div class="table-wrap"><table><thead><tr><th>ROLE</th><th>REMAINING CREDITS</th><th>MAX CREDITS</th></tr></thead><tbody id="usageBody"></tbody></table></div></div>
+    </section>
+    <footer>FULL STACK WEB DEVELOPMENT • ASSIGNMENT 05 <span>Air University, Kamra</span></footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

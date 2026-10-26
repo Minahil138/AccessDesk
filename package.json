@@ -1,0 +1,13 @@
+{
+  "name": "accessdesk-role-based-customer-portal",
+  "version": "1.0.0",
+  "description": "Role-based customer access portal for Full Stack Web Development Assignment 05",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "mysql2": "^3.14.1"
+  }
+}
